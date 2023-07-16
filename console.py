@@ -21,10 +21,84 @@ class HBNBCommand(cmd.Cmd):
     def emptyline(self):
         """Called when an empty line is entered"""
         pass
+<<<<<<< HEAD
 
     def do_create(self, arg):
         """Create a new instance of BaseModel, saves it, and prints the id"""
         args = shlex.split(arg)
+=======
+    
+
+    def precmd(self, line):
+
+        """
+            Preprocess the command line input before execution.
+
+            This method is called before the execution of each command.
+            It processes the command line input and performs any
+            necessary transformations.
+
+            Parameters:
+            - line: The command line input string.
+
+            Returns:
+            - The modified command line input string.
+
+            """
+        command_pattern = r"^(?P<command>[a-zA-Z]+)(\((?P<args>.*)\))?$"
+        class_command_pattern = r"^(?P<class>[a-zA-Z]+)\.(?P<command>[a-zA-Z_]+)\(\)$"
+        class_show_pattern = r"^(?P<class>[a-zA-Z]+)\.show\((?P<id>.*)\)$"
+        class_destroy_pattern = r"^(?P<class>[a-zA-Z]+)\.destroy\((?P<id>.*)\)$"
+        match_command = re.match(command_pattern, line)
+        match_class_command = re.match(class_command_pattern, line)
+        match_class_show = re.match(class_show_pattern, line)
+        match_class_destroy = re.match(class_destroy_pattern, line)
+
+        if match_command:
+            command = match_command.group("command")
+            args = match_command.group("args")
+            if command in self.dot_cmds:
+                if args:
+                    args = args.split(", ")
+                else:
+                    args = []
+                args.insert(0, command)
+                return " ".join(args)
+
+        elif match_class_command:
+            class_name = match_class_command.group("class")
+            command = match_class_command.group("command")
+            model_class = self.classes.get(class_name)
+            if not model_class:
+                print("** class doesn't exist **")
+                return
+            return f"{command} {class_name}"
+
+        elif match_class_show:
+            class_name = match_class_show.group("class")
+            instance_id = match_class_show.group("id")
+            model_class = self.classes.get(class_name)
+            if not model_class:
+                print("** class doesn't exist **")
+                return
+            return f"show {class_name} {instance_id}"
+        elif match_class_destroy:
+            class_name = match_class_destroy.group("class")
+            instance_id = match_class_destroy.group("id")
+            model_class = self.classes.get(class_name)
+            if not model_class:
+                print("** class doesn't exist **")
+                return
+            return f"destroy {class_name} {instance_id}"
+
+        return line
+    
+    def do_create(self, args):
+        """
+        Create a new instance of a given class.
+        Usage: create <class name> [param1=value1] [param2=value2] ...
+        """
+>>>>>>> 45ab58987fb553b5c03e0360c120b4b506284541
         if not args:
             print("** class name missing **")
         elif args[0] not in storage.classes:
