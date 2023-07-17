@@ -1,30 +1,17 @@
 #!/usr/bin/env python3
 """
-This is the file_storage module for the AirBnb_clone project.
-
-Module functionality:
 - Provides the FileStorage class, which manages the storage of objects in a JSON file.
-
 """
 import json
 import uuid
 from os.path import exists
 
+
 class FileStorage:
     """
-    This is the FileStorage class that manages the storage of objects in a JSON file.
-
-    Class attributes:
     - __file_path: The path to the JSON file where objects are stored.
     - __objects: A dictionary that stores objects as key-value pairs.
     - classes: A dictionary that stores class names as keys and their corresponding class objects as values.
-
-    Public methods:
-    - all: Returns the dictionary of objects (__objects).
-    - new: Sets an object with the key "<class_name>.id" in the __objects dictionary.
-    - save: Serializes the __objects dictionary to the JSON file.
-    - reload: Deserializes the JSON file to populate the __objects dictionary.
-
     """
     __file_path = "file.json"
     __objects = {}

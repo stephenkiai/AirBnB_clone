@@ -1,14 +1,7 @@
 #!/usr/bin/env python3
-
 """
-This is the Place module for the AirBnb_clone project.
-
-Module functionality:
 - Provides the Place class, which represents an accommodation place.
-- Inherits from the BaseModel class.
-
 """
-
 from models.base_model import BaseModel
 
 
@@ -17,12 +10,6 @@ class Place(BaseModel):
     def __init__(self, *args, **kwargs):
         """
         Initializes a new instance of the Place class.
-
-        Parameters:
-        - args: Positional arguments (not used in this implementation).
-        - kwargs: Keyword arguments that can be used to initialize the
-        instance attributes.
-
         """
         super().__init__(*args, **kwargs)
         self.city_id = ""

@@ -1,11 +1,7 @@
 #!/usr/bin/env python3
 """
-This is the test_review module for the AirBnb_clone project.
-
-Module functionality:
 - Provides the TestReview class, which contains unit tests
 for the Review class.
-
 """
 import unittest
 from datetime import datetime
@@ -15,12 +11,11 @@ from models.base_model import BaseModel
 
 class TestReview(unittest.TestCase):
     """
-    This is the TestReview class that contains unit tests for the Review class.
+    TestReview class that contains unit tests for the Review class.
     """
     def test_review_attributes(self):
         """
         Test if the Review instance has the required attributes.
-
         """
         review = Review()
         self.assertTrue(hasattr(review, 'id'))
@@ -33,7 +28,6 @@ class TestReview(unittest.TestCase):
     def test_review_inheritance(self):
         """
         Test if the Review instance inherits from BaseModel.
-
         """
         review = Review()
         self.assertIsInstance(review, BaseModel)

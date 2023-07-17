@@ -1,10 +1,6 @@
 #!/usr/bin/env python3
 """
-This is the test_user module for the AirBnb_clone project.
-
-Module functionality:
 - Provides the TestUser class, which contains unit tests for the User class.
-
 """
 import unittest
 from datetime import datetime
@@ -33,7 +29,6 @@ class TestUser(unittest.TestCase):
     def test_user_inheritance(self):
         """
         Test if the User instance inherits from BaseModel.
-
         """
         user = User()
         self.assertIsInstance(user, BaseModel)
@@ -41,7 +36,6 @@ class TestUser(unittest.TestCase):
     def test_user_initialization(self):
         """
         Test if the User instance is initialized correctly.
-
         """
         user = User(email="test@example.com", first_name="John", last_name="Doe")
         self.assertEqual(user.email, "test@example.com")
@@ -54,7 +48,6 @@ class TestUser(unittest.TestCase):
         """
         Test if the to_dict method returns the correct dictionary
         representation.
-
         """
         user = User(email="test@example.com", first_name="John", last_name="Doe")
         user_dict = user.to_dict()

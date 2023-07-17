@@ -200,7 +200,7 @@ class HBNBCommand(cmd.Cmd):
         """
         Update existing attributes of an object based on class name and UUID.
         """
-        args = self.custom_split(line)
+        args = self.args_splitter(line)
 
         if not args:
             print("** class name missing **")

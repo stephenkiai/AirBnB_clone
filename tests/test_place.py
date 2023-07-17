@@ -1,10 +1,6 @@
 #!/usr/bin/env python3
 """
-This is the test_place module for the AirBnb_clone project.
-
-Module functionality:
 - Provides the TestPlace class, which contains unit tests for the Place class.
-
 """
 
 import unittest
@@ -21,7 +17,6 @@ class TestPlace(unittest.TestCase):
     def test_place_attributes(self):
         """
         Test if the Place instance has the required attributes.
-
         """
         place = Place()
         self.assertTrue(hasattr(place, 'id'))
@@ -42,7 +37,6 @@ class TestPlace(unittest.TestCase):
     def test_place_inheritance(self):
         """
         Test if the Place instance inherits from BaseModel.
-
         """
         place = Place()
         self.assertIsInstance(place, BaseModel)
