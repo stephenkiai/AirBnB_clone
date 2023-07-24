@@ -4,10 +4,7 @@
     width: 100%;
     border: 1px solid #DDDDDD;
     border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    padding-right: 30px;
+    
 }
 .search-btn{
     font-size: 18px;
@@ -15,11 +12,14 @@
     color: #FFFFFF;
     height: 48px;
     width: 150px;
-    border: none;
+    border-style: none;
     border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    float: right;
+    margin-top: 11px;
+    margin-bottom: 11px;
     margin-right: 30px;
 
+}
+.search-btn:hover{
+    opacity: 90%;
 }
